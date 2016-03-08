@@ -15,8 +15,14 @@ public class State2 implements State {
 
 	@Override
 	public void doAction(Context context) {
-		// TODO Auto-generated method stub
-
+		if(Character.isDigit(context.last)) {
+			context.subtotal += Character.getNumericValue(context.last);
+			context.total += context.subtotal;
+			context.setState(State4.getInstance());
+		} else {
+			context.error = "E2";
+			context.setState(StateError.getInstance());
+		}
 	}
 
 }

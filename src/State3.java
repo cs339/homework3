@@ -15,8 +15,14 @@ public class State3 implements State {
 
 	@Override
 	public void doAction(Context context) {
-		// TODO Auto-generated method stub
-
+		if(Character.isDigit(context.last)) {
+			context.subtotal += Character.getNumericValue(context.last);
+			context.total -= context.subtotal;
+			context.setState(State5.getInstance());
+		} else {
+			context.error = "E3";
+			context.setState(StateError.getInstance());
+		}
 	}
 
 }

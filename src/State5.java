@@ -15,8 +15,21 @@ public class State5 implements State {
 
 	@Override
 	public void doAction(Context context) {
-		// TODO Auto-generated method stub
-
+		if(Character.isDigit(context.last)) {
+			context.total += context.subtotal;
+			context.subtotal *= 10;
+			context.subtotal += Character.getNumericValue(context.last);
+			context.total -= context.subtotal;
+		} else if(context.last == '+') {
+			context.subtotal = 0;
+			context.setState(State2.getInstance());
+		} else if(context.last == '-') {
+			context.subtotal = 0;
+			context.setState(State3.getInstance());
+		} else {
+			context.error = "E5";
+			context.setState(StateError.getInstance());
+		}
 	}
 
 }
