@@ -20,11 +20,13 @@ public class State1 implements State {
 			context.total += Character.getNumericValue(context.last);
 			context.setState(State1.getInstance());
 		} else if(context.last == '+') {
+			context.error = "Error: Statement cannot end with an operator [+-].";
 			context.setState(State2.getInstance());
 		} else if(context.last == '-') {
+			context.error = "Error: Statement cannot end with an operator [+-].";
 			context.setState(State3.getInstance());
 		} else {
-			context.error = "E1";
+			context.error = "Error: Only digits [0-9] and operators [+-] are allowed.";
 			context.setState(StateError.getInstance());
 		}
 	}

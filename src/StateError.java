@@ -14,8 +14,6 @@ public class StateError implements State {
 	}
 
 	@Override
-	public void doAction(Context context) {
-		System.out.println("Error: " + context.error);
-	}
+	public void doAction(Context context) {}
 
 }

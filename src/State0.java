@@ -19,7 +19,7 @@ public class State0 implements State {
 			context.total += Character.getNumericValue(context.last);
 			context.setState(State1.getInstance());
 		} else {
-			context.error = ("E0");
+			context.error = ("Error: First Character must be a digit [0-9].");
 			context.setState(StateError.getInstance());
 		}
 	}

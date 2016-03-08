@@ -10,6 +10,7 @@ public class CalculatorDemo {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Expression: ");
 		String expression = scan.nextLine();
+		expression = expression.replaceAll("\\s+","");
 		scan.close();
 		for(char c : expression.toCharArray()) {
 			context.last = c;
@@ -19,8 +20,7 @@ public class CalculatorDemo {
 		    	break;
 		    }
 		}
-		if(context.getState() != StateError.getInstance()) {
-			System.out.println("Total: " + context.total);
-		}
+		if(context.error.length() > 0) System.out.println(context.error);
+		else System.out.println("Total: " + context.total);
 	}
 }

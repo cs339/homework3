@@ -21,13 +21,15 @@ public class State4 implements State {
 			context.subtotal += Character.getNumericValue(context.last);
 			context.total += context.subtotal;
 		} else if(context.last == '+') {
+			context.error = "Error: Statement cannot end with an operator [+-].";
 			context.subtotal = 0;
 			context.setState(State2.getInstance());
 		} else if(context.last == '-') {
+			context.error = "Error: Statement cannot end with an operator [+-].";
 			context.subtotal = 0;
 			context.setState(State3.getInstance());
 		} else {
-			context.error = "E4";
+			context.error = "Error: Only digits [0-9] and operators [+-] are allowed.";
 			context.setState(StateError.getInstance());
 		}
 	}
