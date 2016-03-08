@@ -1,15 +1,16 @@
+package hw3;
 
-public class State3 implements State {
+public class State2 implements State {
 	// create an object of State0
-	private static State3 instance = new State3();
+	private static State2 instance = new State2();
 
 	// make the constructor private so that this class cannot be
 	// instantiated
-	private State3() {
+	private State2() {
 	}
 
 	// Get the only object available
-	public static State3 getInstance() {
+	public static State2 getInstance() {
 		return instance;
 	}
 
@@ -18,8 +19,8 @@ public class State3 implements State {
 		if(Character.isDigit(context.last)) {
 			context.error = "";
 			context.subtotal += Character.getNumericValue(context.last);
-			context.total -= context.subtotal;
-			context.setState(State5.getInstance());
+			context.total += context.subtotal;
+			context.setState(State4.getInstance());
 		} else if (context.last == '+' || context.last == '-'){
 			context.error = "Error: You cannot have two operators [+-] in a row.";
 			context.setState(StateError.getInstance());

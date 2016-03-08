@@ -1,3 +1,4 @@
+package hw3;
 
 public class State5 implements State {
 	// create an object of State0

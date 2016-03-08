@@ -1,3 +1,4 @@
+package hw3;
 
 public class StateFactory {
 	public State getShape(String state) {

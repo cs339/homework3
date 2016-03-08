@@ -1,3 +1,4 @@
+package hw3;
 
 public class StateError implements State {
 	// create an object of State0

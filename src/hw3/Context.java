@@ -1,3 +1,4 @@
+package hw3;
 
 public class Context {
 	private State state;
